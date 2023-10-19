@@ -1,0 +1,32 @@
+<html>
+  <body>
+    <div id="container">
+      <form>
+        <div>
+          <label>First Name:</label>
+          <input type="text" class="form-input" id="firstName" value="Mario" />
+        </div>
+        <div>
+          <label>Last Name:</label>
+          <input type="text" class="form-input" id="lastName" value="Rossi" />
+        </div>
+        <div>
+          <label>Age:</label>
+          <input type="number" class="form-input" id="age" value="25" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  const labelArr = document.querySelectorAll("label");
+  const inputArr = document.querySelectorAll("input");
+
+  for (let i = 0; i < labelArr.length; i++) {
+    const label = labelArr[i].innerText;
+    const input = inputArr[i].value;
+
+    console.log(label, input);
+  }
+</script>
