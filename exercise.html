@@ -1,0 +1,35 @@
+<html>
+  <body>
+    <div id="container" style="display: flex; align-items: center"></div>
+  </body>
+</html>
+
+<script>
+  const container = document.querySelector("#container");
+  const api = "https://jsonplaceholder.typicode.com/todos/4";
+
+  fetchData(api)
+    .then((data) => createTitle(data))
+    .catch((err) => console.log(err));
+
+  async function fetchData(api) {
+    try {
+      const dataJson = await fetch(api);
+      const dataObj = await dataJson.json();
+      return dataObj;
+    } catch (err) {
+      return err;
+    }
+  }
+
+  function createTitle(data) {
+    const h2 = document.createElement("h2");
+    h2.innerText = data.title;
+
+    const checkbox = document.createElement("input");
+    checkbox.setAttribute("type", "checkbox");
+    checkbox.checked = data.completed;
+
+    container.append(h2, checkbox);
+  }
+</script>
