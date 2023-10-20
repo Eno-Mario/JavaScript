@@ -37,6 +37,7 @@
   ------------------- */
 
   async function postTodo() {
+    event.preventDefault();
     const todoObj = {
       title: input.value,
       completed: completed.checked,
